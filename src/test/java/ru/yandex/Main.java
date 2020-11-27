@@ -13,23 +13,30 @@ public class Main extends Actions{
         super(driver);
     }
 
+    // 2. Open the site page
     public void goTo() {
         driver.get(SITE_URL);
     }
 
+    // 3. Chose and click the button
     public void choseButton(String button) {
-        click(By.xpath("//div[contains(text(),'" + button + "')]"));
+        click(By.xpath("//div[text()='" + button + "']"));
     }
 
-    public void research(String text) {
+    // 4,5. Print the request on the chosen page
+    public void search(String text) {
         choseThisWindow();
-        write(By.id("header-search"),text + "\n");
+        write(By.id("header-search"), text);    // 4. Write the request
+        click(By.className("_1XiEJDPVpk"));   // 5. Start
+        // search
     }
 
+    // 6. Put some ticks on the page
     public void putTick(String tick) {
-        click(By.xpath("//span[contains(text(),'" + tick + "')]"));
+        click(By.xpath("//span[text()='" + tick + "']"));
     }
 
+    // 7. Make and save screenshot
     public void getScreen() throws IOException {
         screen();
     }
